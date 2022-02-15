@@ -33,8 +33,8 @@ const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowe
 app.locals.title = `${capitalized(projectName)} created with Ironlauncher`;
 
 
-const personalRouter = require("./routes/private/personal.routes")
-app.use("/profile", personalRouter)
+const personalRouter = require("./routes/private/personal.routes");
+app.use("/profile", personalRouter);
 // 👇 Start handling routes here
 const index = require("./routes/index");
 app.use("/", index);
