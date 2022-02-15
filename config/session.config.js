@@ -24,7 +24,7 @@ module.exports = (app) => {
       saveUninitialized: false,
       cookie: {
         httpOnly: true,
-        maxAge: 60000 // 60 * 1000 ms === 1 min
+        maxAge: 600000 // 60 * 1000 ms === 1 min * 10 === 10min
       }, // ADDED code below !!!
       store: MongoStore.create({
         mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/basic-auth"

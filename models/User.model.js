@@ -23,7 +23,7 @@ const userSchema = new Schema(
     },
     imgUrl: {
       type: String,
-      default: "https://cdn-icons-png.flaticon.com/512/456/456212.png"
+      default: "https://p7.hiclipart.com/preview/782/114/405/5bbc3519d674c.jpg"
     }
   },
   {

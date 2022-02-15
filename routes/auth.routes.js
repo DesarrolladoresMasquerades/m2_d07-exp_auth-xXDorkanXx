@@ -9,6 +9,7 @@ const saltRounds = 10;
 
 const User = require("../models/User.model");
 const { checkAnon, checkLogin } = require("../middleware/auth.middleware");
+const UserModel = require("../models/User.model");
 
 // GET route ==> to display the signup form to users
 router.get("/signup", (req, res) => res.render("auth/signup"));
@@ -118,7 +119,13 @@ router.post("/login", checkAnon, (req, res, next) => {
 });
 
 router.get("/userProfile", (req, res) => {
-  res.render("users/user-profile", { userInSession: req.session.currentUserId });
+
+  const id = req.session.currentUserId;
+
+  UserModel.findById(id)
+  .then((user)=>{
+    res.render("users/user-profile", {userInSession: user});
+  })
 });
 
 router.post("/logout", checkLogin, (req, res) => {
